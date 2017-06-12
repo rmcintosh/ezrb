@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# change this if your git config file is located elsewhere
+git_config=~/.gitconfig 
+
+# grab this user's git username from their git config file
+username=$(git config --file $git_config --get user.name)
+
+# grab the commit hash of the most recent commit that isn't theirs
+commit_hash=$(git log --format='%H %an' | grep -v $username | cut -d ' ' -f1 | head -1)
+
+# begin rebase in cwd based on that commit bash
+git rebase -i $commit_hash
