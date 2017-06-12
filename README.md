@@ -1,2 +1,2 @@
 # ezrb
-a script to simplify squash commits on a pull/merge request
+a script to simplify squashing commits on a pull/merge request
